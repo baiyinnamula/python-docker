@@ -1,12 +1,8 @@
 name: CI to Docker Hub 
 
-on:
-  push:
-    tags:
-      - "v*.*.*"
+on: [push]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +35,7 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ushamandya/simplewhale:latest
+          tags: baiyinnamula/python-docker:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
       -
